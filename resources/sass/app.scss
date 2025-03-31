@@ -1,0 +1,93 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+//create your own map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $green-600,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+$custom-colors: (
+	"kai": $teal-500,
+	);
+
+//Merge the maps
+@theme-colors:map-merge($theme-colors, $custom-colors);
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+    color:  #ffffff;
+    text-transform: uppercase;
+    font-family: "Orbitron", sans-serif;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff5733, 0 0 10px #ff5733, 0 0 15px #ff5733;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733;
+    }
+}
+
+.logo-img {
+    height: 40px; /* Ajusta el tamaño según necesites */
+    width: 40px;  /* Mantiene la forma circular */
+    border-radius: 80%; /* Hace la imagen completamente circular */
+    object-fit: cover; /* Recorta la imagen si es necesario */
+    border: 2px solid white; /* Opcional: agrega un borde */
+}
+
+/* Estilo para Login y Register con Efecto Hover */
+.nav-link.login-btn,
+.nav-link.register-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff; /* Color de texto blanco */
+    text-transform: uppercase;
+    font-family: "Orbitron", sans-serif;
+    animation: glow 1.5s infinite alternate; /* Aplicando el efecto glow */
+    padding: 8px 15px; /* Espaciado interno */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto glow (resplandor) */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff; /* Resplandor blanco */
+    }
+    100% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff; /* Resplandor más intenso */
+    }
+}
+
+/* Efecto Hover: Cambiar a color negro y resplandor negro */
+.nav-link.login-btn:hover,
+.nav-link.register-btn:hover {
+    color: #000000; /* El texto se pone de color negro */
+    text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000; /* Resplandor negro */
+}
+
+.card img {
+  width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  height: 200px; /* Establece una altura fija para que todas tengan el mismo tamaño */
+  object-fit: cover; /* Recorta la imagen para llenar el espacio sin distorsionarse */
+  max-width: 100%; /* Evita que la imagen se estire más allá del contenedor */
+}
