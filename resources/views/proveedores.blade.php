@@ -4,7 +4,7 @@
     <div class="container mt-4">
         <!-- Botón Regresar a la Vista Principal -->
         <a href="{{ route('tienda') }}" class="btn btn-secondary mb-3">
-            🏠 Regresar a la Vista Principal
+            🏠 Regresar
         </a>
 
         <div class="card shadow-lg border-0">
