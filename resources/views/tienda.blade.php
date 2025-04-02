@@ -9,16 +9,16 @@
                 <h2 class="text-center my-3">🍏 ORGANIFRES</h2>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">📊 Dashboard</a>
+                        <a class="nav-link text-white active" href="{{route('dashboard')}}">📊 Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">📦 Productos</a>
+                        <a class="nav-link text-white" href="{{route('productos')}}">📦 Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">🛒 Órdenes</a>
+                        <a class="nav-link text-white" href="{{route('proveedores')}}">🛒 Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">👥 Clientes</a>
+                        <a class="nav-link text-white" href="{{route('clientes.index')}}">👥 Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">📈 Reportes</a>
