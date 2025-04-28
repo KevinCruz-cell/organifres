@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,12 +10,16 @@ class Proveedor extends Model
 
     protected $table = 'proveedores';
     protected $primaryKey = 'Id_proveedor';
-    public $timestamps = false; // Si tu tabla no tiene created_at y updated_at
+    public $timestamps = false;
 
+    // 👇 Aquí defines qué campos pueden ser asignados en masa
+    protected $fillable = [
+        'Id_persona',  // Asegúrate de incluir todos los campos necesarios
+        // 'otro_campo', 'otro_campo2', etc.
+    ];
 
     public function persona()
     {
-        // Esta relación debe devolver el modelo Persona y debe coincidir con la clave foránea
-        return $this->belongsTo(Persona::class, 'Id_persona','Id_persona'); // Asegúrate de que 'Id_persona' sea el campo correcto
+        return $this->belongsTo(Persona::class, 'Id_persona', 'Id_persona');
     }
 }
