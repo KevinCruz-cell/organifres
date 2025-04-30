@@ -53,7 +53,7 @@
                         <tbody>
                         @foreach ($productos as $producto)
                             <tr>
-                                <td>{{ $producto->Id_producto }}</td>
+                                <td>{{ $loop->index +1}}</td>
                                 <td>{{ $producto->Nombre }}</td>
                                 <td>{{ $producto->descripcion }}</td>
                                 <td>${{ $producto->Precio }} MXN</td>

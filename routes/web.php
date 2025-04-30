@@ -81,6 +81,7 @@ Route::get('/registro', function () {
 
 // Ruta para procesar el registro (si deseas guardarlo)
 Route::post('/registro', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('registro');
+
 //Ruta categorias
 Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categorias.create');
@@ -88,6 +89,7 @@ Route::post('/categorias', [CategoriaController::class, 'store'])->name('categor
 Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
 //Route::get('/categorias/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
 Route::resource('categorias', CategoriaController::class);
+
 Route::get('/clientes/{id}/edit', [App\Http\Controllers\ClienteController::class, 'edit'])->name('clientes.edit');
 Route::put('/clientes/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('clientes.update');
 Route::get('/proveedores/{id}/edit', [ProveedorController::class, 'edit'])->name('proveedores.edit');

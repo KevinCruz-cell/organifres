@@ -13,13 +13,13 @@ class ProductoController extends Controller
         $productos = Producto::all();
 
         // Pasar los productos a la vista 'productos'
-        return view('productos', compact('productos'));
+        return view('productos.productos', compact('productos'));
     }
     public function edit($id)
     {
         $producto = Producto::findOrFail($id);
         $categorias = \App\Models\Categoria::all();
-        return view('productos_edit', compact('producto', 'categorias'));
+        return view('productos.productos_edit', compact('producto', 'categorias'));
     }
     public function update(Request $request, $id)
     {
@@ -49,7 +49,7 @@ class ProductoController extends Controller
     public function create()
     {
         $categorias = \App\Models\Categoria::all();
-        return view('productos_create', compact('categorias'));
+        return view('productos.productos_create', compact('categorias'));
     }
 
     public function store(Request $request)

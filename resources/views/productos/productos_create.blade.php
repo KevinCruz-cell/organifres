@@ -20,7 +20,7 @@
             <div class="mb-3">
                 <label for="Id_categoria" class="form-label">Categoría</label>
                 <select class="form-select" id="Id_categoria" name="Id_categoria" required>
-                    <option value="">Selecciona una categoría</option>
+                    <option value="" disabled>Selecciona una categoría</option>
                     @foreach ($categorias as $categoria)
                         <option value="{{ $categoria->Id_categoria }}">{{ $categoria->Nombre }}</option>
                     @endforeach

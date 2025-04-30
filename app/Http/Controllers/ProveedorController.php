@@ -11,7 +11,7 @@ class ProveedorController extends Controller
     public function index()
     {
         $proveedores = Proveedor::with('persona')->get();
-        return view('proveedores', compact('proveedores'));
+        return view('proveedores.proveedores', compact('proveedores'));
     }
 
 
@@ -20,14 +20,14 @@ class ProveedorController extends Controller
     {
         // Opcional: Puedes enviar la lista de personas para seleccionar una asociada
         $personas = Persona::all();
-        return view('proveedores_create', compact('personas'));
+        return view('proveedores.proveedores_create', compact('personas'));
     }
     // Mostrar el formulario para editar un proveedor
     public function edit($id)
     {
         $proveedor = Proveedor::findOrFail($id);
         $personas = Persona::all();
-        return view('proveedores_edit', compact('proveedor', 'personas'));
+        return view('proveedores.proveedores_edit', compact('proveedor', 'personas'));
     }
 
 // Actualizar el proveedor en la base de datos

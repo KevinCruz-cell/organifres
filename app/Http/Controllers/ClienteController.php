@@ -12,7 +12,7 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::with('persona')->get();
-        return view('clientes', compact('clientes'));
+        return view('clientes.clientes', compact('clientes'));
     }
 
     // Mostrar el formulario para agregar un nuevo cliente
@@ -20,13 +20,13 @@ class ClienteController extends Controller
     {
         // Traemos todas las personas para seleccionar una asociada
         $personas = Persona::all();
-        return view('clientes_create', compact('personas'));
+        return view('clientes.clientes_create', compact('personas'));
     }
     public function edit($id)
     {
         $cliente = Cliente::findOrFail($id);
         $personas = Persona::all(); // Obtener todas las personas para el comboBox
-        return view('clientes_edit', compact('cliente', 'personas'));
+        return view('clientes.clientes_edit', compact('cliente', 'personas'));
     }
     public function update(Request $request, $id)
     {
