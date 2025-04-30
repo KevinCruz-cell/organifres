@@ -29,7 +29,7 @@ Route::get("Ejemplo_5",function(){
 });
 
 Route::get("Ejemplo_6",function(){
-    return view("Ejemplo_6");
+    return view("dashboard.Ejemplo_6");
 });
 
 Route::get('/productos',function(){

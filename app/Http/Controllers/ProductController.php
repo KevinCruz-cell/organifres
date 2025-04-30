@@ -11,6 +11,6 @@ class ProductController extends Controller
 {
     $productos = Producto::all(); // Obtener todos los productos
     // dd($productos); // Comenta o elimina esta línea
-    return view('tienda', compact('productos')); // Enviar los productos a la vista
+    return view('dashboard.tienda', compact('productos')); // Enviar los productos a la vista
 }
 }
