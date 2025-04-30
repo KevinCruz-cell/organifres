@@ -21,7 +21,7 @@
                         <a class="nav-link text-white" href="{{route('clientes.index')}}">👥 Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">📈 Reportes</a>
+                        <a class="nav-link text-white" href="{{route('categorias.index')}}">📈 Categoria</a>
                     </li>
                 </ul>
             </div>

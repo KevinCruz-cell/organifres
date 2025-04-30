@@ -22,6 +22,26 @@ class ClienteController extends Controller
         $personas = Persona::all();
         return view('clientes_create', compact('personas'));
     }
+    public function edit($id)
+    {
+        $cliente = Cliente::findOrFail($id);
+        $personas = Persona::all(); // Obtener todas las personas para el comboBox
+        return view('clientes_edit', compact('cliente', 'personas'));
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'id_persona' => 'required|exists:personas,Id_persona'
+        ]);
+
+        $cliente = Cliente::findOrFail($id);
+        $cliente->id_persona = $request->id_persona;
+        $cliente->save();
+
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
+    }
+
+
 
     // Almacenar el cliente en la base de datos
     public function store(Request $request)

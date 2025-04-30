@@ -30,6 +30,10 @@
             <main class="col-md-10 ms-sm-auto px-md-4 bg-light">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2 text-dark">📦 Gestión de Productos</h1>
+                    <div class="mb-3">
+                        <a href="{{ route('productos.create') }}" class="btn btn-success font-weight-bold">➕ Agregar Producto</a>
+                    </div>
+
                 </div>
 
                 <!-- Tabla de Productos -->
@@ -38,48 +42,34 @@
                         <thead class="table-dark">
                         <tr>
                             <th>ID</th>
-                            <th>Imagen</th>
                             <th>Producto</th>
                             <th>Descripción</th>
                             <th>Precio</th>
+                            <th>categoria</th>
                             <th>Acciones</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><img src="{{ asset('img/Emanzana.jpg') }}" width="50" class="rounded-lg shadow-md"></td>
-                            <td>Manzana</td>
-                            <td>Manzana fresca y deliciosa</td>
-                            <td>$50 MXN</td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-info text-white font-weight-bold">✏️ Editar</a>
-                                <a href="#" class="btn btn-sm btn-danger text-white font-weight-bold">🗑️ Eliminar</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><img src="{{ asset('img/Epepin.jpg') }}" width="50" class="rounded-lg shadow-md"></td>
-                            <td>Pepino</td>
-                            <td>Pepino fresco y crujiente</td>
-                            <td>$30 MXN</td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-info text-white font-weight-bold">✏️ Editar</a>
-                                <a href="#" class="btn btn-sm btn-danger text-white font-weight-bold">🗑️ Eliminar</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><img src="{{ asset('img/Epepino.jpg') }}" width="50" class="rounded-lg shadow-md"></td>
-                            <td>Epepino</td>
-                            <td>Una variedad especial de pepino</td>
-                            <td>$40 MXN</td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-info text-white font-weight-bold">✏️ Editar</a>
-                                <a href="#" class="btn btn-sm btn-danger text-white font-weight-bold">🗑️ Eliminar</a>
-                            </td>
-                        </tr>
+                        @foreach ($productos as $producto)
+                            <tr>
+                                <td>{{ $producto->Id_producto }}</td>
+                                <td>{{ $producto->Nombre }}</td>
+                                <td>{{ $producto->descripcion }}</td>
+                                <td>${{ $producto->Precio }} MXN</td>
+                                <td>{{ $producto->categoria->Nombre ?? 'Sin categoría' }}</td>
+                                <td>
+                                    <a href="{{ route('productos.edit', $producto->Id_producto) }}" class="btn btn-sm btn-info text-white font-weight-bold">✏️ Editar</a>
+                                    <form action="{{ route('productos.destroy', $producto->Id_producto) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger font-weight-bold" onclick="return confirm('¿Seguro que deseas eliminar este producto?')">🗑️ Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </main>
