@@ -9,7 +9,6 @@ class Persona extends Model
 {
     use HasFactory;
 
-
     // Especifica que la clave primaria no es 'id', sino 'Id_persona'
     protected $primaryKey = 'Id_persona';
     protected $table = 'personas';

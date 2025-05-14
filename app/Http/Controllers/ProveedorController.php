@@ -8,9 +8,18 @@ use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $proveedores = Proveedor::with('persona')->get();
+        $query = Proveedor::with('persona');
+
+        if ($request->filled('buscar')) {
+            $buscar = $request->buscar;
+            $query->whereHas('persona', function ($q) use ($buscar) {
+                $q->whereRaw("CONCAT(Nom, ' ', Ap, ' ', Am) LIKE ?", ["%{$buscar}%"]);
+            });
+        }
+
+        $proveedores = $query->paginate(10);
         return view('proveedores.proveedores', compact('proveedores'));
     }
 
